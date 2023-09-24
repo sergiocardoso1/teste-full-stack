@@ -1,0 +1,26 @@
+<div class="container">
+  <form class="form-inline">
+    <input class="form-control" type="text" placeholder="Readonly input here…" >
+    <div class="btn-buscar"><a><span>BUSCAR</span></a></div>
+  </form>
+    <div class="container-table">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th (click)="ordenarPor('name')">Nome {{ ordemNome === 'asc' ? '▲' : '▼' }}</th>
+                <th (click)="ordenarPor('tipo')">Tipo {{ ordemTipo === 'asc' ? '▲' : '▼' }}</th>
+                <th >Imagem</th>
+                <th (click)="ordenarPor('abv')">% ABV {{ ordemABV === 'asc' ? '▲' : '▼' }}</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cerveja of cervejas">
+                    <td>{{ cerveja.name }}</td>
+                    <td>{{ cerveja.tagline }}</td>
+                    <td><img [src]="cerveja.image_url" alt="{{ cerveja.image_url }}" width="50"></td>
+                    <td>{{ cerveja.abv }}</td>
+                  </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
