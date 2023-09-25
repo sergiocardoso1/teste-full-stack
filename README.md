@@ -23,7 +23,7 @@ Este guia fornece instruções passo-a-passo para executar a aplicação que con
 
     ```
     git clone <URL_DO_REPOSITÓRIO>
-    cd backend-spring-angular
+    cd teste-full-stack
     ```
 
 2. Navegue até o diretório do backend:
