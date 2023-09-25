@@ -1,4 +1,7 @@
 <div class="container-selecao-cerveja">
+    <div class="btn-voltar">
+        <a [routerLink]="['/cervejas']">> VOLTAR </a>
+    </div>
     <div class="box-selecao-cerveja">
         <div class="img-box">
             <img [src]="cerveja.image_url" alt="">
@@ -13,15 +16,24 @@
             </div>
             <div class="avaliacao-box">
                 <div class="comentario-box">
-                    <input type="text" placeholder="Comentários">
+                    <input [(ngModel)]="comentarioInput" type="text" placeholder="Comentários">
                 </div>
                 <div class="cerveja-avaliar">
-                    <a><span>AVALIAR</span></a>
+                    <a><span (click)="cadastrarComentario()">AVALIAR</span></a>
                   </div>
             </div>
         </div>
 
     </div>
+    <div class="container-comentario">
+        <ul>
+          <li *ngFor="let a of comentarios" >
+              <div class="card-comentario" >
+                  <p>"{{ a.comentario }}"</p>
+              </div>
+          </li>
+        </ul>
+      </div>
 
 
 

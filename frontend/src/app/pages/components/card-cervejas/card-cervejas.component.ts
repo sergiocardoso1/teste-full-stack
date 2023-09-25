@@ -22,6 +22,8 @@ export class CardCervejasComponent implements OnInit {
     this.cervejaService.findAll().subscribe((cervejas) => {
       this.cervejas = cervejas;
     });
+    
+
   }
 
   ordenarPor(atributo: string): void {

@@ -1,39 +1,49 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
 .container-selecao-cerveja{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     width: 100%;
-    height: 100%;
-    
 
+}
+
+.btn-voltar > a{
+  text-decoration: none;
+  color: black;
+  margin-left: 5px;
 }
 
 .box-selecao-cerveja{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-evenly;
     gap: 2rem;
     width: 100%;
-    height: 100vh;
-    border-radius: 3px;
-    overflow-y: scroll;
-    padding-bottom: 60px;
+    height: 100%;
+    
+    
+
+    
    
 }
 
-.img-box{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.img-box {
+  width: 100%;
+  height: auto; /* Torna a altura flexível para acomodar o tamanho da imagem */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
-.img-box > img{
-    height: 400px;
-    width: auto;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin-right: 10px;
+.img-box > img {
+  height: auto;
+  width: 100px;
 }
 
 .descricao-box{
@@ -41,9 +51,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 30px;
     padding-bottom: 30px;
-    padding-right: 20px;
     
 }
 
@@ -68,6 +76,10 @@
 
 .avaliacao-box{
     margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .comentario-box{
@@ -100,7 +112,6 @@
     justify-content: center;
     transition: all .35s;
     border-radius: 3px;
-    margin-right: 10px;
     cursor: pointer;
   }
   
@@ -128,3 +139,34 @@
     width: 100%;
   }
 
+  .container-comentario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 30px;
+
+  }
+
+ .container-comentario > ul > li{
+  margin-bottom: 5px;
+ }
+
+  .card-comentario{
+    height: auto;
+    padding-top: 5px;
+    max-width: 100%;
+  }
+
+  .card-comentario > p{
+    font-family: fantasy, cursive, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    
+    
+  }
