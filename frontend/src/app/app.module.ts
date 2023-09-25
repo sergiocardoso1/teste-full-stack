@@ -9,6 +9,7 @@ import { CervejasModule } from './pages/cervejas/cervejas.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthTokenInterceptor } from './services/interceptorService/auth-token.interceptor';
 import { EsqueceuSenhaModule } from './pages/esqueceu-senha/esqueceu-senha.module';
+import { SelecaoCervejaModule } from './pages/selecao-cerveja/selecao-cerveja.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { EsqueceuSenhaModule } from './pages/esqueceu-senha/esqueceu-senha.modul
     LoginModule,
     CervejasModule,
     EsqueceuSenhaModule,
+    SelecaoCervejaModule
 
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true }],

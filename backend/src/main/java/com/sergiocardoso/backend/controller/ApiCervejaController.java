@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +24,11 @@ public class ApiCervejaController {
 	@Autowired
 	public ApiCervejaController(ApiCervejaService apiCervejaService) {
 		this.apiCervejaService = apiCervejaService;
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public Cerveja findId(@PathVariable Long id){
+		return apiCervejaService.findIdApi(id);
 	}
 	
 	@RequestMapping(method =  RequestMethod.GET)

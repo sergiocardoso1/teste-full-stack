@@ -1,43 +1,89 @@
-O teste consiste em criar uma aplicação que expõe uma API REST de um CRUD de produtos e autenticação, e uma aplicação web contendo uma interface para login e acesso a dados de uma API externa. 
+# Guia de Execução da Aplicação
 
-Depois de logado, o usuário da aplicação web deve poder acessar os dados da [Punk API v2](https://punkapi.com/). 
+Este guia fornece instruções passo-a-passo para executar a aplicação que consiste em um backend Spring com Java 11 e um frontend Angular 15. Certifique-se de seguir todos os passos na ordem correta.
 
-NOTA: O front-end e back-end deve ser realizado apenas por desenvolvedores Full Stack. Caso contrário, realize o teste de acordo com sua área de atuação.
+## Requisitos
 
-NOTA 2: Não esqueça de fazer o fork do repositório.
+- Java Development Kit (JDK) 11: Certifique-se de ter o JDK 11 instalado em seu sistema. Você pode verificar a instalação com o seguinte comando no terminal:
 
-## Back-end 💻
-- Todos os endpoints de consulta de dados devem ter autenticação por webtoken ou similar.
-- Deve existir validação dos dados recebidos pela API.
-- O CRUD não precisa de interface, apenas o login e o cadastro
+    ```
+    java -version
+    ```
 
-## Front-end 🎨
-O front-end deve atender aos seguintes requisitos:
-- Interface de login e cadastro com feedbacks para usuário ou senha incorreta.
-- Listagem dos dados da Punk API v2.
-- Responsividade.
+- Node.js e npm: Certifique-se de ter o Node.js e o npm (Node Package Manager) instalados. Você pode verificar a instalação com os seguintes comandos no terminal:
 
-## Extras 🌟
-O desenvolvimento dessas features é opcional.
+    ```
+    node -v
+    npm -v
+    ```
 
-- Filtragem dos dados da Punk API v2 por diferentes critérios, como nome, estilo de cerveja, teor alcoólico, etc.
-- Ordenação dos dados da Punk API v2 por diferentes campos, como nome, teor alcoólico, etc.
-- Comentários e avaliações: permitir que os usuários deixem comentários e avaliações para as cervejas.
-- Dockerfile com todas as dependências.
+## Configuração do Backend
 
-## Critérios de avaliação ✅
-- Funcionamento do projeto.
-- Estrutura do código.
-- Uso de boas práticas.
-- Cumprimento dos requisitos mínimos.
+1. Clone este repositório:
 
-## Entrega 📦
+    ```
+    git clone <URL_DO_REPOSITÓRIO>
+    cd backend-spring-angular
+    ```
 
-- Um repositório git (fork deste).
-- Um README do projeto com o passo-a-passo para executar a aplicação.
+2. Navegue até o diretório do backend:
 
-## Observações 📝
+    ```
+    cd backend
+    ```
+3. Abra o arquivo `application-test.properties` no diretório `src/main/resources` e adicione as informações de email e senha de aplicativo necessárias para configurar o SMTP. Por exemplo:
 
-1. Pode ser utilizado qualquer framework front-end, preprocessadores de css, task runners, bundlers, etc, de sua preferência, mas nenhum deles é de uso obrigatório.
+    ```
+    # Configuração do SMTP
+    spring.mail.host=smtp.example.com
+    spring.mail.port=587
+    spring.mail.username=seu_email@example.com
+    spring.mail.password=sua_senha_de_aplicativo
+    spring.mail.properties.mail.smtp.auth=true
+    spring.mail.properties.mail.smtp.starttls.enable=true
+    ```
 
-2. Não se deve fazer o commit de pastas como node_modules, o projeto deve instalar suas dependências a partir do package.json.
+    Substitua `seu_email@example.com` e `sua_senha_de_aplicativo` pelas credenciais de email e senha de aplicativo apropriadas.
+
+4. Inicie o servidor Spring Boot:
+
+    ```
+    ./mvnw spring-boot:run
+    ```
+
+O backend agora está em execução na porta padrão 8080.
+
+## Configuração do Frontend
+
+4. Navegue até o diretório do frontend:
+
+    ```
+    cd ../frontend
+    ```
+
+5. Instale as dependências do projeto Angular:
+
+    ```
+    npm install
+    ```
+
+6. Inicie o servidor de desenvolvimento Angular:
+
+    ```
+    npm start
+    ```
+
+O frontend agora está em execução na porta padrão 4200.
+
+## Acesso à Aplicação
+
+Agora que tanto o backend quanto o frontend estão em execução, você pode acessar a aplicação em seu navegador web:
+
+- Frontend: http://localhost:4200
+- Backend: http://localhost:8080
+
+## Encerrando a Aplicação
+
+Para encerrar a execução do frontend e do backend, você pode pressionar `Ctrl + C` nos respectivos terminais em que estão sendo executados.
+
+Esperamos que este guia tenha sido útil para você configurar e executar a aplicação. Se você encontrar algum problema ou tiver alguma dúvida, sinta-se à vontade para entrar em contato com a equipe de suporte.

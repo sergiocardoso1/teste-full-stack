@@ -5,6 +5,8 @@ import java.util.List;
 import com.sergiocardoso.backend.domain.Cerveja;
 
 public interface ApiCervejaService {
+	
+	public Cerveja findIdApi(Long id);
 
 	public List<Cerveja> obterDadosApi();
 	

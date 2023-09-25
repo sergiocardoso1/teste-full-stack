@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Cerveja } from 'src/app/models/cervejaModel';
-import { User } from 'src/app/models/userModel';
 import { CervejasService } from 'src/app/services/cervejasService/cervejas.service';
 
 @Component({
@@ -15,6 +14,7 @@ export class CardCervejasComponent implements OnInit {
   ordemTipo: 'asc' | 'desc' = 'asc';
   ordemImagem: 'asc' | 'desc' = 'asc';
   ordemABV: 'asc' | 'desc' = 'asc';
+  nameInput:string = "";
 
   constructor(private cervejaService: CervejasService) {}
 
@@ -52,4 +52,19 @@ export class CardCervejasComponent implements OnInit {
         break;
     }
   }
+
+  findName() {
+    console.log("Valor atual de nameInput:", this.nameInput); // Adicione este log para depuração
+    if (this.nameInput.trim() !== "") {
+      this.cervejaService.findByName(this.nameInput).subscribe(data => {
+        this.cervejas = data;
+      });
+    } else {
+      this.cervejaService.findAll().subscribe(data => {
+        this.cervejas = data;
+      });
+    }
+  }
+
+
 }
