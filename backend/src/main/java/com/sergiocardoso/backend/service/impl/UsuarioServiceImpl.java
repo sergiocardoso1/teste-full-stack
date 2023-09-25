@@ -15,6 +15,7 @@ import com.sergiocardoso.backend.dto.UsuarioNewDTO;
 import com.sergiocardoso.backend.dto.UsuarioPasswordDTO;
 import com.sergiocardoso.backend.repository.UsuarioRepository;
 import com.sergiocardoso.backend.service.UsuarioService;
+import com.sergiocardoso.backend.service.exceptions.EmailExistsException;
 import com.sergiocardoso.backend.service.exceptions.ObjectNotFoundException;
 
 
@@ -78,12 +79,19 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	public Usuario fromDTO(UsuarioNewDTO objDto) {
-		Usuario obj = new Usuario(null, objDto.getNome(), objDto.getEmail(),
-				bCryptPasswordEncoder.encode(objDto.getSenha()));
-		if (objDto.getPerfil() != null) {
-			obj.addPerfil(Perfil.toEnum(objDto.getPerfil()));
+		if(repository.findByEmail(objDto.getEmail()) != null) {
+			throw new EmailExistsException("Email já cadastrado!");
+		}else {
+			Usuario obj = new Usuario(null, objDto.getNome(), objDto.getEmail(),
+					bCryptPasswordEncoder.encode(objDto.getSenha()));
+			if (objDto.getPerfil() != null) {
+				obj.addPerfil(Perfil.toEnum(objDto.getPerfil()));
+			}
+			return obj;
+			
 		}
-		return obj;
+		
+		
 	}
 
 	public Usuario fromDTO(UsuarioDTO objDto) {

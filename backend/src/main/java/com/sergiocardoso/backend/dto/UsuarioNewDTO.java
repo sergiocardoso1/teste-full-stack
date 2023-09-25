@@ -17,7 +17,6 @@ public class UsuarioNewDTO {
 	@Length(min=8, max=30, message= "O tamanho deve ser entre 8 e 30")
 	private String senha;
 	private Integer perfil;
-	private Long academiaId;
 	
 	public UsuarioNewDTO() {
 		
@@ -53,14 +52,6 @@ public class UsuarioNewDTO {
 
 	public void setPerfil(Integer tipoColaborador) {
 		this.perfil = tipoColaborador;
-	}
-
-	public Long getAcademiaId() {
-		return academiaId;
-	}
-
-	public void setAcademiaId(Long academiaId) {
-		this.academiaId = academiaId;
 	}
 	
 	
